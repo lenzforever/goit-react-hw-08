@@ -1,0 +1,17 @@
+/* Error.module.css */
+.errorWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fddede;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.errorText {
+  color: #d9534f;
+  font-size: 1.2rem;
+  text-align: center;
+}

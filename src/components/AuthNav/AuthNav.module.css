@@ -1,0 +1,31 @@
+/* Обертка навигационного меню */
+.navContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 12px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+/* Ссылки навигации */
+.navLink {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navLink:hover,
+.navLink:focus {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+/* Активная ссылка */
+.active {
+  background-color: #238be0;
+  color: white;
+}
