@@ -1,13 +1,13 @@
-
 .listWrapper {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .noContacts {
   text-align: center;
-  color: #888;
-  font-size: 1rem;
-  margin-top: 20px;
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-top: 24px;
+  font-style: italic;
 }

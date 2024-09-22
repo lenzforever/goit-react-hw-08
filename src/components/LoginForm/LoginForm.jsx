@@ -10,10 +10,10 @@ import css from "./LoginForm.module.css";
 
 const validationSchema = Yup.object().shape({
   password: Yup.string()
-    .min(8, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Enter a valid email!").required("Required"),
+    .min(8, "Слишком короткий!")
+    .max(50, "Слишком длинный!")
+    .required("Обязательно"),
+  email: Yup.string().email("Введите корректный email!").required("Обязательно"),
 });
 
 const LoginForm = () => {
@@ -41,14 +41,14 @@ const LoginForm = () => {
           <span className={css.label}>Email</span>
           <Field
             className={css.input}
-            type="text"
+            type="email" // Изменено на "email" для валидации
             name="email"
             placeholder="example@mail.com"
           />
           <ErrorMessage name="email" component="span" className={css.error} />
         </label>
         <label className={css.field}>
-          <span className={css.label}>Password</span>
+          <span className={css.label}>Пароль</span>
           <Field
             className={css.input}
             type="password"
@@ -59,9 +59,9 @@ const LoginForm = () => {
         </label>
 
         <button className={css.submitButton} type="submit">
-          Log In
+          Войти
         </button>
-        {error && <Error />}
+        {error && <Error className={css.errorSummary} />}
       </Form>
     </Formik>
   );

@@ -1,18 +1,30 @@
 .contactWrapper {
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
   position: relative;
-  min-width: 348px;
+  min-width: 360px;
 }
+
 .wrapper {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 
 .deleteBtn {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteBtn:hover {
+  background-color: #ff1a1a;
 }

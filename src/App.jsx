@@ -15,7 +15,7 @@ import { apiRefreshUser } from "./redux/auth/operations";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectAuthIsRefreshing);
 
@@ -25,7 +25,7 @@ function App() {
 
   return isRefreshing ? (
     <div className="loading-container">
-      <b>Refreshing user...</b>
+      <strong>Обновление пользователя...</strong>
     </div>
   ) : (
     <Layout>
@@ -46,6 +46,6 @@ function App() {
       </Routes>
     </Layout>
   );
-}
+};
 
 export default App;

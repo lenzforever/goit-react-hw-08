@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
 import Error from "../Error/Error";
-
 import { apiRegister } from "../../redux/auth/operations";
 import { selectAuthError } from "../../redux/auth/selectors";
 
-import css from "./RegistrationForm.module.css";
+import styles from "./RegistrationForm.module.css";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -23,7 +22,7 @@ const validationSchema = Yup.object().shape({
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectAuthError);
+  const authError = useSelector(selectAuthError);
 
   const initialValues = {
     name: "",
@@ -31,9 +30,9 @@ const RegistrationForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(apiRegister(values));
-    actions.resetForm();
+    resetForm();
   };
 
   return (
@@ -42,47 +41,49 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      <Form className={css.form}>
-        <label className={css.field}>
-          <span className={css.label}>Name</span>
-          <Field
-            className={css.input}
-            type="text"
-            name="name"
-            placeholder="Name"
-          />
-          <ErrorMessage className={css.error} name="name" component="span" />
-        </label>
-        <label className={css.field}>
-          <span className={css.label}>Email</span>
-          <Field
-            className={css.input}
-            type="email"
-            name="email"
-            placeholder="example@mail.com"
-          />
-          <ErrorMessage className={css.error} name="email" component="span" />
-        </label>
-        <label className={css.field}>
-          <span className={css.label}>Password</span>
-          <Field
-            className={css.input}
-            type="password"
-            name="password"
-            placeholder="****************"
-          />
-          <ErrorMessage
-            className={css.error}
-            name="password"
-            component="span"
-          />
-        </label>
+      {() => (
+        <Form className={styles.form}>
+          <div className={styles.field}>
+            <label className={styles.label}>Name</label>
+            <Field
+              className={styles.input}
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+            <ErrorMessage className={styles.error} name="name" component="span" />
+          </div>
+          <div className={styles.field}>
+            <label className={styles.label}>Email</label>
+            <Field
+              className={styles.input}
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+            />
+            <ErrorMessage className={styles.error} name="email" component="span" />
+          </div>
+          <div className={styles.field}>
+            <label className={styles.label}>Password</label>
+            <Field
+              className={styles.input}
+              type="password"
+              name="password"
+              placeholder="****************"
+            />
+            <ErrorMessage
+              className={styles.error}
+              name="password"
+              component="span"
+            />
+          </div>
 
-        <button className={css.signUpBtn} type="submit">
-          Sign Up
-        </button>
-        {error && <Error className={css.errorSummary} />}
-      </Form>
+          <button className={styles.signUpBtn} type="submit">
+            Sign Up
+          </button>
+          {authError && <Error className={styles.errorSummary} />}
+        </Form>
+      )}
     </Formik>
   );
 };

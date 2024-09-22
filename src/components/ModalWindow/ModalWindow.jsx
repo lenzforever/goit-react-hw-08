@@ -1,37 +1,34 @@
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import { apiLogout } from "../../redux/auth/operations";
-import css from "./ModalWindow.module.css";
+import styles from "./ModalWindow.module.css";
 
 Modal.setAppElement("#root");
 
-const customStyles = {
+const modalStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
   },
   content: {
-    height: "30%",
-    width: "35%",
+    height: "35%",
+    width: "40%",
     top: "50%",
     left: "50%",
-    right: "auto",
-    bottom: "auto",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    padding: "20px",
-    textAlign: "center",
+    backgroundColor: "#fdfdfd", 
+    padding: "25px",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    alignItems: "center",
+    justifyContent: "space-around",
   },
 };
 
-const ModalWindow = ({ modalIsOpen, setIsOpen }) => {
+const ModalWindow = ({ isOpen, toggleModal }) => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
-    setIsOpen(false);
+    toggleModal(false);
   };
 
   const handleLogout = () => {
@@ -41,27 +38,27 @@ const ModalWindow = ({ modalIsOpen, setIsOpen }) => {
 
   return (
     <Modal
-      isOpen={modalIsOpen}
+      isOpen={isOpen}
       onRequestClose={closeModal}
       contentLabel="Logout Confirmation"
-      style={customStyles}
+      style={modalStyles}
     >
-      <h3 className={css.title}>Confirm Logout</h3>
-      <p className={css.message}>
+      <h3 className={styles.title}>Log Out Confirmation</h3>
+      <p className={styles.message}>
         Are you sure you want to log out? You will lose access to your contacts.
       </p>
-      <div className={css.buttonContainer}>
+      <div className={styles.buttonContainer}>
         <button
           type="button"
           onClick={closeModal}
-          className={css.cancelButton}
+          className={styles.cancelButton}
         >
           Cancel
         </button>
         <button
           type="button"
           onClick={handleLogout}
-          className={css.logoutButton}
+          className={styles.logoutButton}
         >
           Log Out
         </button>

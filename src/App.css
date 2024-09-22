@@ -1,17 +1,14 @@
-
 .loading-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #fff;
-    /* Фон для экрана загрузки */
+    background-color: #fafafa;
     font-size: 1.5rem;
-    color: #666;
-    /* Цвет текста */
+    color: #777;
 }
 
-b {
+strong {
     font-weight: bold;
 }
 
@@ -20,8 +17,7 @@ b {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
-    /* Светлый серый фон для страницы регистрации */
+    background-color: #e9e9e9;
     padding: 20px;
 }
 
@@ -30,19 +26,16 @@ b {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
-    /* Светлый серый фон для страницы входа */
+    background-color: #e9e9e9;
     padding: 20px;
 }
-
 
 .home-page {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f9f9f9;
-    /* Светлый фон для главной страницы */
+    background-color: #fefefe;
     padding: 20px;
 }
 
@@ -54,30 +47,15 @@ b {
 
 h1 {
     font-size: 2.5rem;
-    color: #333;
-    /* Тёмно-серый цвет для заголовка */
+    color: #444;
 }
 
-.login-page .login-form-container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    /* Белый фон для формы */
-    border-radius: 8px;
-    /* Скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Тень для формы */
-    padding: 20px;
-}
-
+.login-page .login-form-container,
 .registration-page .registration-form-container {
     width: 100%;
     max-width: 400px;
-    background-color: #fff;
-    /* Белый фон для формы */
+    background-color: #ffffff;
     border-radius: 8px;
-    /* Скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Тень для формы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     padding: 20px;
 }

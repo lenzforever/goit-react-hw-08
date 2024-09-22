@@ -3,31 +3,30 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
 import { addContact } from "../../redux/contacts/operations";
-
 import css from "./ContactForm.module.css";
 import toast, { Toaster } from "react-hot-toast";
 
-function ContactForm() {
+const ContactForm = () => {
   const dispatch = useDispatch();
   const initialValues = {
     name: "",
     number: "",
   };
 
-  const validationParams = Yup.object().shape({
+  const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .min(3, "Слишком коротко!")
+      .max(50, "Слишком длинно!")
+      .required("Обязательное поле"),
     number: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .min(3, "Слишком коротко!")
+      .max(50, "Слишком длинно!")
+      .required("Обязательное поле"),
   });
 
-  const handleSubmit = (contact, actions) => {
-    dispatch(addContact(contact));
-    toast.success("Contact added successfully", { duration: 1500 });
+  const handleSubmit = (values, actions) => {
+    dispatch(addContact(values));
+    toast.success("Контакт успешно добавлен", { duration: 1500 });
     actions.resetForm();
   };
 
@@ -36,23 +35,23 @@ function ContactForm() {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={validationParams}
+        validationSchema={validationSchema}
       >
         <Form className={css.formWrapper}>
           <label className={css.labelWrapper}>
-            <span className={css.label}>Name</span>
+            <span className={css.label}>Имя</span>
             <Field className={css.input} type="text" name="name" />
             <ErrorMessage className={css.errorMessage} name="name" component="span" />
           </label>
 
           <label className={css.labelWrapper}>
-            <span className={css.label}>Number</span>
+            <span className={css.label}>Номер</span>
             <Field className={css.input} type="tel" name="number" />
             <ErrorMessage className={css.errorMessage} name="number" component="span" />
           </label>
 
           <button className={css.submitButton} type="submit">
-            Add Contact
+            Добавить контакт
           </button>
         </Form>
       </Formik>

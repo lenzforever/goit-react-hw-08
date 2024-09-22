@@ -1,17 +1,15 @@
-import { FaUser } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaUser, FaPhoneAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-
 import { deleteContact } from "../../redux/contacts/operations";
-
 import css from "./Contact.module.css";
 import toast from "react-hot-toast";
 
-function Contact({ id, name, number }) {
+const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const onDeleteContact = (id) => {
+
+  const handleDeleteContact = () => {
     dispatch(deleteContact(id));
-    toast.success("Your contact deleted sucsessfuly", { duration: 1500 });
+    toast.success("Контакт успешно удален", { duration: 1500 });
   };
 
   return (
@@ -24,16 +22,15 @@ function Contact({ id, name, number }) {
         <FaPhoneAlt />
         <p>{number}</p>
       </div>
-
       <button
         className={css.deleteBtn}
         type="button"
-        onClick={() => onDeleteContact(id)}
+        onClick={handleDeleteContact}
       >
-        Delete
+        Удалить
       </button>
     </li>
   );
-}
+};
 
 export default Contact;

@@ -1,20 +1,19 @@
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background: #f4f7f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background: #e8f0f2;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .formWrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
 }
 
 .labelWrapper {
@@ -23,35 +22,35 @@
 }
 
 .label {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 6px;
 }
 
 .input {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
   font-size: 1rem;
 }
 
 .errorMessage {
-  color: #d9534f;
-  font-size: 0.875rem;
+  color: #c9302c;
+  font-size: 0.9rem;
   margin-top: 4px;
 }
 
 .submitButton {
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-size: 1rem;
   color: #fff;
-  background-color: #238be0;
+  background-color: #007bff;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .submitButton:hover {
-  background-color: #1a6bb4;
+  background-color: #0056b3;
 }
