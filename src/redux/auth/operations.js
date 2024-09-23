@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://connections-api.goit.global/",
+  baseURL: "https://connections-api.goit.global",
 });
 
 const SetAuthHeaders = (token) => {
@@ -35,6 +35,14 @@ export const apiLogin = createAsyncThunk(
   }
 );
 
+export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, thunkAPI) => {
+  try {
+    clearAuthToken();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
 export const apiLogout = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
@@ -42,7 +50,8 @@ export const apiLogout = createAsyncThunk(
       await instance.post("/users/logout");
       return;
     } catch (error) {
-      return thunkAPI.rejectWithValue();
+      console.error("Logout error:", error);
+      return thunkAPI.rejectWithValue(error.response.data); 
     }
   }
 );
