@@ -36,3 +36,12 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
+  try {
+    const response = await api.logOut(); 
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

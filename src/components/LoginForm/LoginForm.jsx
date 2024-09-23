@@ -41,7 +41,7 @@ const LoginForm = () => {
           <span className={css.label}>Email</span>
           <Field
             className={css.input}
-            type="email" // Изменено на "email" для валидации
+            type="email"
             name="email"
             placeholder="example@mail.com"
           />
